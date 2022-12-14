@@ -370,6 +370,99 @@ console.log(1111)
 
 
 
+import { useEffect, useState, Profiler } from "react"
+import logo from './logo.svg';
+import './App.css';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+
+// useEffect - side effects , call api, subscribe events, manipulate DOM
+// useState - how it really works? 
+
+
+function App() {
+  const [team, setTeam] = useState("Brazil")
+  const [height, setHeight] = useState(0)
+  const [width, setWidth] = useState(0)
+  useEffect(() => {
+    function handleResize() {
+      console.log("Resize-Window");
+      setWidth(window.innerWidth)
+      setHeight(window.innerHeight)
+    }
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      console.log("CleanUp")
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
+  return (
+    <div className="App">
+      <Profiler id="Navigation" onRender={(args, a, b, c, d) => {
+        console.log(args, a, b, c, d)
+        console.log("profile")
+      }}>
+        <div>
+          <h1 onClick={() => {
+            setTeam("Qatar")
+          }}> Oracle week 2022  </h1>
+          <h1> {team} </h1>
+          <h1> {height} X {width} </h1>
+        </div>
+      </Profiler>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+export const ReactOracleWeek = (() => {
+    let value = []
+    let index = 0;
+    const useStateOracle = (initialState) => {
+      const localIndex = index;
+      index++;
+      if (!value[localIndex]) {
+        value[localIndex] = initialState
+      }
+      const setterFunction = (newValue) => {
+        value[localIndex] = newValue
+      }
+      return [value[localIndex], setterFunction]
+  
+    }
+    const resetIndex = () => index = 0;
+    return {
+      useStateOracle,
+      resetIndex
+    }
+  
+  })()
+  
+  const { useStateOracle, resetIndex } = ReactOracleWeek
+  const MyComponent = () => {
+    const [value, setValue] = useStateOracle(1)
+    const [name, setName] = useStateOracle("Gal")
+  
+    if (value !== 2) {
+      setValue(2)
+      setName("Marina")
+    }
+    const render = () => console.log("render component", value, name)
+    return { render }
+  }
+  
+  MyComponent().render()
+  resetIndex()
+  MyComponent().render()
+
 
 
 
