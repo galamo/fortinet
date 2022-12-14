@@ -48,14 +48,14 @@
     ```
 
 
-### Running the Server
-## you dont have docker?
+## Running the Api
+### you dont have docker?
 1. open CMD
 2. navigate into `server` folder
 3. run `npm install`
 4. run `npm run install-globals`
 5. run `npm start`
-## You have docker?
+### You have docker?
 1. `cd dev-apps`
 2. `docker compose up --build `
 3. <b>Wait 2-3 min for Databases and Api retry connection</b>
@@ -103,7 +103,7 @@
     Host: localhost:2200
     Content-Type: application/json
     Authorization: string
-```
+
 
 # React
 
