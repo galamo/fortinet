@@ -12,7 +12,6 @@ console.log("Api is running ")
 const app = express();
 app.use(cors())
 // initDB()
-
 app.use((req, res, next) => {
     next()
 })

@@ -215,7 +215,13 @@ based on your information
 ### Keys in react
 
 
-### EX-2 
+### EX useEffect
+1. Create a Component that fetch's products from the following API `https://dummyjson.com/docs/products/`
+2. Show the Products in the page.
+3. Implement selected Product functionality which will present on the top of the page the selected Product
+
+
+### EX Toggle component
 1. Toggle Countries Rendering to show unmount aborting request
 2. Toggle Products 
 
