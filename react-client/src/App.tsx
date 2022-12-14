@@ -10,6 +10,7 @@ function App() {
   const [counter, setCounter] = useState(1)
 
 
+
   // console.log("same like useeffect without second param")
   // useEffect
   // 1. side effect
@@ -39,7 +40,9 @@ function App() {
         {counter}
         {showResizeComponent ? <ResizeComponent /> : null}
         <Header text={"Countries App"} color={color} />
+
         <Countries />
+
       </div>
     </div >
   );

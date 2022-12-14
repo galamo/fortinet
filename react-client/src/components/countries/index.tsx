@@ -6,18 +6,22 @@ import { Badge } from 'primereact/badge';
 import { InputText } from 'primereact/inputtext';
 import debounce from "lodash/debounce"
 import axios from "axios";
+import { SpinnerWrapper } from "../ui-components/SpinnerWrapper";
 
 
 
 export function Countries() {
     const [countries, setCountries] = useState([]);
     const [country, setCountry] = useState("");
+    const [isLoadingCountries, setIsLoadingCountries] = useState(false);
+
 
     useEffect(() => {
         const cancelToken = axios.CancelToken;
         const source = cancelToken.source();
         async function getCountries() {
             try {
+                setIsLoadingCountries(true)
                 const { data } = await axios.get(`http://localhost:2200/countries-delay/name/${country}`, {
                     cancelToken: source.token
                 })
@@ -29,6 +33,8 @@ export function Countries() {
                 } else {
                     alert("Something went wrong!")
                 }
+            } finally {
+                setIsLoadingCountries(false)
             }
         }
         if (country) getCountries();
@@ -54,7 +60,9 @@ export function Countries() {
             <InputText onChange={debounceInputChange} />
         </div>
         <div>
-            <CountreisCards array={countries} />
+            <SpinnerWrapper isLoading={isLoadingCountries}>
+                <CountreisCards array={countries} />
+            </SpinnerWrapper>
         </div>
     </div>
 }
