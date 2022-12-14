@@ -7,7 +7,7 @@ var jwt = require('jsonwebtoken');
 const axios = require("axios")
 const bodyParser = require("body-parser")
 NODE_TLS_REJECT_UNAUTHORIZED = 0
-
+console.log("Api is running ")
 
 const app = express();
 app.use(cors())
