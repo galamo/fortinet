@@ -4,7 +4,9 @@ import './App.css';
 import { Header, Colors } from "./components/ui-components/Header"
 import ResizeComponent from "./components/ui-components/Resize"
 import { Countries } from "./components/countries"
-import { Login } from './components/login';
+import { Login } from './components/login-ref';
+// import { Login } from './components/login';
+
 import { Users } from './components/users';
 import { Register } from './components/register';
 function App() {
@@ -39,7 +41,7 @@ function App() {
         <button onClick={() => { setColor(Colors.yellow) }}> Yellow </button>
         <button onClick={() => { setColor(Colors.red) }}> Red </button>
         {counter}
-        <Register />
+        <Login />
         {showResizeComponent ? <ResizeComponent /> : null}
         <Header text={"Countries App"} color={color} />
 
