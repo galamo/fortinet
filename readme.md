@@ -225,7 +225,7 @@ based on your information
 1. Toggle Countries Rendering to show unmount aborting request
 2. Toggle Products 
 
-### EX-3 
+### EX-Image Component 
 - Create an Image component
 - image should get a URL string
 - in case the URL is missing - present the `defaultImage`
