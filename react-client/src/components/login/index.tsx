@@ -7,7 +7,7 @@ export function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     // missing type
-    
+
     console.log("Render Login component ")
     const handleEmailCached = useCallback((e: any) => {
         console.log("handleEmailCached=>", email)
@@ -30,9 +30,7 @@ export function Login() {
             <InputText value={password} onChange={handlePasswordCached} />
         </div>
         <div style={{ marginTop: "10px" }}>
-            <Button label="Login" onClick={() => {
-
-            }} />
+            <Button label="Login" onClick={() => { }} />
         </div>
 
     </div>
