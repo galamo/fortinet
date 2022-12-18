@@ -1,20 +1,20 @@
-import { useCallback, useState, useRef, useEffect } from "react"
+import { useRef, useEffect } from "react"
 // @ts-ignore
 import { Button } from "primereact/button"
 import { InputText } from "primereact/inputtext"
-import { addListener } from "process";
+
 
 export function Login() {
     // const email / password!
     const emailElement = useRef<HTMLInputElement>(null);
     const passwordElement = useRef<HTMLInputElement>(null);
-    const [show, setShowPassword] = useState(false)
+    const clickingRef = useRef<number>(0)
 
     useEffect(() => {
         if (passwordElement && passwordElement.current) {
             passwordElement.current.value = "ps-mail-1.."
         }
-    }, [show])
+    }, [])
 
     return <div>
         <h1> Login </h1>
@@ -22,15 +22,17 @@ export function Login() {
             <h3>  Email </h3>
             <InputText ref={emailElement} />
         </div>
-        {!!show && <div>
+        <div>
             <h3> Password</h3>
             <InputText ref={passwordElement} />
-        </div>}
+        </div>
         <div style={{ marginTop: "10px" }}>
-            <Button label="Show Password" onClick={() => {
-                setShowPassword(!show)
-            }} />
+
             <Button label="Login" onClick={() => {
+                clickingRef.current++
+                if (clickingRef.current > 3) {
+                    alert("You clicked this button too much times")
+                }
                 if (!emailElement.current?.value || !passwordElement.current?.value) {
                     alert("Something went wrong")
                 }
