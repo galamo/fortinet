@@ -9,6 +9,7 @@ import axios from "axios";
 import { SpinnerWrapper } from "../ui-components/SpinnerWrapper";
 import css from "./style.module.css";
 import CountriesStats from "./statistics";
+import FortinetImage from "../ui-components/FortinetImage";
 
 
 
@@ -94,7 +95,8 @@ export function CountryCard(props: any) {
     return (
         <Card style={{ display: "inline-block" }} footer={props?.region} header={props?.name?.common}>
             <h2> Population <Badge value={props.population}></Badge></h2>
-            <img src={props?.flags?.png} height={200} width={200} />
+            <FortinetImage src={props?.region === "Americas" ? "" : props?.flags?.png} />
+            {/* <img src={props?.flags?.png} height={200} width={200} /> */}
         </Card>
     )
 }
