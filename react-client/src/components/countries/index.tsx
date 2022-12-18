@@ -16,7 +16,6 @@ export function Countries() {
     const [country, setCountry] = useState("");
     const [isLoadingCountries, setIsLoadingCountries] = useState(false);
 
-
     useEffect(() => {
         const cancelToken = axios.CancelToken;
         const source = cancelToken.source();
