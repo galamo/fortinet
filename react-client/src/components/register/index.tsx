@@ -2,10 +2,13 @@ import { useCallback, useState } from "react"
 // @ts-ignore
 import { Button } from "primereact/button"
 import { InputText } from "primereact/inputtext"
+import { useNavigate } from "react-router-dom"
 
 export function Register() {
     const [formData, setFormData] = useCustomForm({ email: "", password: "", gender: "female" })
     const { email, password, gender } = formData
+    const navigate = useNavigate()
+    console.log(navigate)
     // const [email, setEmail] = useState("")
     // const [password, setPassword] = useState("")
     // const [gender, setGender] = useState("")
@@ -24,7 +27,7 @@ export function Register() {
     // }
 
     return <div>
-        <h1> Login </h1>
+        <h1> Register </h1>
         <div>
             <h3>  Email </h3>
             <InputText name={"email"} value={email} onChange={setFormData} />

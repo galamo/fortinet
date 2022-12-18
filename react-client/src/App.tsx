@@ -4,14 +4,15 @@ import './App.css';
 import { Header, Colors } from "./components/ui-components/Header"
 import ResizeComponent from "./components/ui-components/Resize"
 import { Countries } from "./components/countries"
-import { Login } from './components/login-ref';
+import { LoginRef } from './components/login-ref';
 // import { Login } from './components/login';
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom"
 
 import { Users } from './components/users';
 import { Register } from './components/register';
 import { Home } from './components/home';
 import { NotFound } from './components/notFound';
+import { Button } from 'primereact/button';
 
 
 const routes = [
@@ -19,28 +20,35 @@ const routes = [
     path: "/",
     element: <Home />,
     text: "home",
-    // isVisible>?
+    isVisible: true,
+    // protected
+  },
+  {
+    path: "/register",
+    element: <Register />,
+    text: "register",
+    isVisible: true,
     // protected
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <LoginRef />,
     text: "login",
-    // isVisible>?
+    isVisible: true,
     // protected
   },
   {
     path: "/countries",
     element: <Countries />,
     text: "countries",
-    // isVisible>?
+    isVisible: true,
     // protected
   },
   {
     path: "/resize",
     element: <ResizeComponent />,
     text: "resize-test",
-    // isVisible>?
+    isVisible: true,
     // protected
   },
   {
@@ -56,9 +64,7 @@ type IRoute = typeof routes[0]
 
 
 function App() {
-  console.log("App component")
-  const [color, setColor] = useState(Colors.blue)
-  const [counter, setCounter] = useState(1)
+
 
 
 
@@ -72,33 +78,29 @@ function App() {
   // useEffect(() => { This Code will Run }, []) => Mount  
   // useEffect(() => { This Code will Run }, [param]) => When param is getting updated 
   // useEffect(() => { return Cleanup() will run }, [param]) => When param is getting updated OR destroy
-
-
-
-  useEffect(() => {
-    return () => {
-      console.log("cleanUp Function")
-    }
-  }, [counter])
-
-
-  const showResizeComponent = counter % 2 === 0
   return (
     <div className="App">
       <div>
         <BrowserRouter>
-          {/* <Routes>
+          <NavigationBar routes={routes} />
+          <Routes>
             {routes.map((route: IRoute) => {
               return <Route key={route.text} path={route.path} element={route.element} />
             })}
-          </Routes> */}
-          {/* <Login />
-          {showResizeComponent ? <ResizeComponent /> : null}
-          <Countries /> */}
+          </Routes>
         </BrowserRouter>
       </div>
     </div >
   );
+}
+
+
+function NavigationBar(props: { routes: Array<IRoute> }) {
+  return <div className={"navigation-bar"}>
+    {props.routes.filter((route: IRoute) => route.isVisible).map((route: IRoute) => {
+      return <div key={route.text} ><Link to={route.path}><Button label={route.text} /></Link></div>
+    })}
+  </div >
 }
 
 export default App;
