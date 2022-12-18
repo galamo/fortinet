@@ -7,6 +7,8 @@ import { InputText } from 'primereact/inputtext';
 import debounce from "lodash/debounce"
 import axios from "axios";
 import { SpinnerWrapper } from "../ui-components/SpinnerWrapper";
+import css from "./style.module.css";
+import CountriesStats from "./statistics";
 
 
 
@@ -56,7 +58,7 @@ export function Countries() {
     const debounceInputChange = debounce(handleInputChange, 400)
 
     return <div>
-        <div>
+        <div className={css.shuffleButton}>
             <Button onClick={() => {
                 // @ts-ignore
                 setCountries([...shuffle(countries)])
@@ -65,7 +67,8 @@ export function Countries() {
         <div>
             <InputText onChange={debounceInputChange} />
         </div>
-        <div>
+        <div className="data-section">
+            <CountriesStats countries={countries} />
             <SpinnerWrapper isLoading={isLoadingCountries}>
                 <CountreisCards array={countries} />
             </SpinnerWrapper>

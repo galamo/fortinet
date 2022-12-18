@@ -11,7 +11,6 @@ export enum Colors {
 
 
 export function Header(props: IHeader) {
-    console.log("Header component")
     const { text } = props;
     return <h1 style={{ color: props.color }}> {text} </h1>
 }

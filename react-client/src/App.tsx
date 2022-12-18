@@ -4,6 +4,8 @@ import './App.css';
 import { Header, Colors } from "./components/ui-components/Header"
 import ResizeComponent from "./components/ui-components/Resize"
 import { Countries } from "./components/countries"
+import { Login } from './components/login';
+import { Users } from './components/users';
 function App() {
   console.log("App component")
   const [color, setColor] = useState(Colors.blue)
@@ -23,8 +25,6 @@ function App() {
   // useEffect(() => { return Cleanup() will run }, [param]) => When param is getting updated OR destroy
 
   useEffect(() => {
-    console.log("useEffect is running", color, counter)
-
     return () => {
       console.log("cleanUp Function")
     }
@@ -38,6 +38,8 @@ function App() {
         <button onClick={() => { setColor(Colors.yellow) }}> Yellow </button>
         <button onClick={() => { setColor(Colors.red) }}> Red </button>
         {counter}
+        <Users />
+        <Login />
         {showResizeComponent ? <ResizeComponent /> : null}
         <Header text={"Countries App"} color={color} />
 
