@@ -6,9 +6,55 @@ import ResizeComponent from "./components/ui-components/Resize"
 import { Countries } from "./components/countries"
 import { Login } from './components/login-ref';
 // import { Login } from './components/login';
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 import { Users } from './components/users';
 import { Register } from './components/register';
+import { Home } from './components/home';
+import { NotFound } from './components/notFound';
+
+
+const routes = [
+  {
+    path: "/",
+    element: <Home />,
+    text: "home",
+    // isVisible>?
+    // protected
+  },
+  {
+    path: "/login",
+    element: <Login />,
+    text: "login",
+    // isVisible>?
+    // protected
+  },
+  {
+    path: "/countries",
+    element: <Countries />,
+    text: "countries",
+    // isVisible>?
+    // protected
+  },
+  {
+    path: "/resize",
+    element: <ResizeComponent />,
+    text: "resize-test",
+    // isVisible>?
+    // protected
+  },
+  {
+    path: "*",
+    element: <NotFound />,
+    text: "not-found"
+    // isVisible>?
+    // protected
+  }
+]
+
+type IRoute = typeof routes[0]
+
+
 function App() {
   console.log("App component")
   const [color, setColor] = useState(Colors.blue)
@@ -27,26 +73,29 @@ function App() {
   // useEffect(() => { This Code will Run }, [param]) => When param is getting updated 
   // useEffect(() => { return Cleanup() will run }, [param]) => When param is getting updated OR destroy
 
+
+
   useEffect(() => {
     return () => {
       console.log("cleanUp Function")
     }
   }, [counter])
+
+
   const showResizeComponent = counter % 2 === 0
   return (
     <div className="App">
       <div>
-
-        <button onClick={() => { setCounter(counter + 1) }}> Incerase Number </button>
-        <button onClick={() => { setColor(Colors.yellow) }}> Yellow </button>
-        <button onClick={() => { setColor(Colors.red) }}> Red </button>
-        {counter}
-        <Login />
-        {showResizeComponent ? <ResizeComponent /> : null}
-        <Header text={"Countries App"} color={color} />
-
-        <Countries />
-
+        <BrowserRouter>
+          {/* <Routes>
+            {routes.map((route: IRoute) => {
+              return <Route key={route.text} path={route.path} element={route.element} />
+            })}
+          </Routes> */}
+          {/* <Login />
+          {showResizeComponent ? <ResizeComponent /> : null}
+          <Countries /> */}
+        </BrowserRouter>
       </div>
     </div >
   );
