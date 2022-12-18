@@ -12,12 +12,15 @@ import CountriesStats from "./statistics";
 import FortinetImage from "../ui-components/FortinetImage";
 
 
+// error!!!
+// @ts-ignore
+// console.log(a.b.c) this is error when we have issue with loading the file 
 
-
-export function Countries() {
+export default function Countries() {
     const [countries, setCountries] = useState([]);
     const [country, setCountry] = useState("");
     const [isLoadingCountries, setIsLoadingCountries] = useState(false);
+
 
     useEffect(() => {
         const cancelToken = axios.CancelToken;

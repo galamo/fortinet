@@ -1,18 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Header, Colors } from "./components/ui-components/Header"
 import ResizeComponent from "./components/ui-components/Resize"
-import { Countries } from "./components/countries"
+// import { Countries } from "./components/countries"
 import { LoginRef } from './components/login-ref';
 // import { Login } from './components/login';
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom"
+import { ProgressSpinner } from 'primereact/progressspinner';
 
 import { Users } from './components/users';
 import { Register } from './components/register';
 import { Home } from './components/home';
 import { NotFound } from './components/notFound';
 import { Button } from 'primereact/button';
+import { SpinnerWrapper } from './components/ui-components/SpinnerWrapper';
+
+const LazyCountries = React.lazy(() => import("./components/countries"))
+// step before MF
 
 
 const routes = [
@@ -39,7 +44,7 @@ const routes = [
   },
   {
     path: "/countries",
-    element: <Countries />,
+    element: <LazyCountries />,
     text: "countries",
     isVisible: true,
     // protected
@@ -83,11 +88,13 @@ function App() {
       <div>
         <BrowserRouter>
           <NavigationBar routes={routes} />
-          <Routes>
-            {routes.map((route: IRoute) => {
-              return <Route key={route.text} path={route.path} element={route.element} />
-            })}
-          </Routes>
+          <Suspense fallback={<ProgressSpinner />}>
+            <Routes>
+              {routes.map((route: IRoute) => {
+                return <Route key={route.text} path={route.path} element={route.element} />
+              })}
+            </Routes>
+          </Suspense>
         </BrowserRouter>
       </div>
     </div >

@@ -38,7 +38,6 @@ export function LoginRef() {
                 if (!emailElement.current?.value || !passwordElement.current?.value) {
                     alert("Something went wrong")
                 }
-                console.log(emailElement.current?.value, passwordElement.current?.value)
             }} />
             <div style={{ marginTop: "10px" }}>
                 <Button label="You dont have an account?" onClick={() => {

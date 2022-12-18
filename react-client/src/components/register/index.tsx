@@ -8,7 +8,6 @@ export function Register() {
     const [formData, setFormData] = useCustomForm({ email: "", password: "", gender: "female" })
     const { email, password, gender } = formData
     const navigate = useNavigate()
-    console.log(navigate)
     // const [email, setEmail] = useState("")
     // const [password, setPassword] = useState("")
     // const [gender, setGender] = useState("")
