@@ -334,8 +334,12 @@ Redux toolkit
 
 
 
+missing features
 
-
+- tests
+- redux toolkit
+- useMemo
+- coucurrent examples 
 
 
 ## Examples

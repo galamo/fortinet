@@ -2,8 +2,10 @@ import { useCallback, useState } from "react"
 // @ts-ignore
 import { Button } from "primereact/button"
 import { InputText } from "primereact/inputtext"
+import { useNavigate } from "react-router-dom"
 
 export function Login() {
+    const navigate = useNavigate()
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     // missing type
@@ -32,6 +34,13 @@ export function Login() {
         <div style={{ marginTop: "10px" }}>
             <Button label="Login" onClick={() => { }} />
         </div>
+        <div style={{ marginTop: "10px" }}>
+            <Button label="You dont have an account?" onClick={() => {
+                // window.location.href = "http://localhost:3000/login"
+                navigate("/home")
+            }} />
+        </div>
+
 
     </div>
 

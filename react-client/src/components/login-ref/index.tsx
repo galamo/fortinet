@@ -2,13 +2,15 @@ import { useRef, useEffect } from "react"
 // @ts-ignore
 import { Button } from "primereact/button"
 import { InputText } from "primereact/inputtext"
+import { useNavigate } from "react-router-dom"
 
 
-export function Login() {
+export function LoginRef() {
     // const email / password!
     const emailElement = useRef<HTMLInputElement>(null);
     const passwordElement = useRef<HTMLInputElement>(null);
     const clickingRef = useRef<number>(0)
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (passwordElement && passwordElement.current) {
@@ -36,8 +38,13 @@ export function Login() {
                 if (!emailElement.current?.value || !passwordElement.current?.value) {
                     alert("Something went wrong")
                 }
-                console.log(emailElement.current?.value, passwordElement.current?.value)
             }} />
+            <div style={{ marginTop: "10px" }}>
+                <Button label="You dont have an account?" onClick={() => {
+                    // window.location.href = "http://localhost:3000/login"
+                    navigate("/register")
+                }} />
+            </div>
         </div>
 
     </div>
