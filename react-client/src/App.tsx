@@ -17,7 +17,9 @@ import { Button } from 'primereact/button';
 import { SpinnerWrapper } from './components/ui-components/SpinnerWrapper';
 import ColorSelector from "./components/color-palette"
 
+import Reports from "./components/reports"
 const LazyCountries = React.lazy(() => import("./components/countries"))
+const LazyReports = React.lazy(() => import("./components/reports"))
 // step before MF
 
 
@@ -57,13 +59,16 @@ const routes = [
     isVisible: true,
     // protected
   },
-  {
-    path: "/colors",
-    element: <ColorSelector />,
-    text: "colors",
-    isVisible: true,
-    // protected
-  },
+  // {
+  //   path: "/colors",
+  //   element: <ColorSelector />,
+  //   text: "colors",
+  //   path: "/reports",
+  //   element: <LazyReports />,
+  //   text: "reports",
+  //   isVisible: true,
+  //   // protected
+  // },
 
   {
     path: "*",
