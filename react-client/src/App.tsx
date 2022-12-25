@@ -16,6 +16,9 @@ import { NotFound } from './components/notFound';
 import { Button } from 'primereact/button';
 import { SpinnerWrapper } from './components/ui-components/SpinnerWrapper';
 import Reports from "./components/reports"
+import Settings from './components/settings';
+import SettingsProvider from './components/providers/settings-provider';
+import Footer from './components/Footer';
 const LazyCountries = React.lazy(() => import("./components/countries"))
 const LazyReports = React.lazy(() => import("./components/reports"))
 // step before MF
@@ -64,6 +67,14 @@ const routes = [
     isVisible: true,
     // protected
   },
+  {
+    path: "/settings",
+    element: <Settings />,
+    text: "settings",
+    isVisible: true,
+    // protected
+  },
+
 
   {
     path: "*",
@@ -95,16 +106,20 @@ function App() {
   return (
     <div className="App">
       <div>
-        <BrowserRouter>
-          <NavigationBar routes={routes} />
-          <Suspense fallback={<ProgressSpinner />}>
-            <Routes>
-              {routes.map((route: IRoute) => {
-                return <Route key={route.text} path={route.path} element={route.element} />
-              })}
-            </Routes>
-          </Suspense>
-        </BrowserRouter>
+        <SettingsProvider>
+          <BrowserRouter>
+            <NavigationBar routes={routes} />
+            <Suspense fallback={<ProgressSpinner />}>
+              <Routes>
+                {routes.map((route: IRoute) => {
+                  return <Route key={route.text} path={route.path} element={route.element} />
+                })}
+              </Routes>
+              <Footer />
+            </Suspense>
+
+          </BrowserRouter>
+        </SettingsProvider>
       </div>
     </div >
   );

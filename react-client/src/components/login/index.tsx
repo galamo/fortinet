@@ -23,6 +23,7 @@ export function Login() {
 
     return <div>
         <h1> Login </h1>
+        <h2> User Lase login time: {new Date().toUTCString()}</h2>
         <div>
             <h3>  Email </h3>
             <InputText value={email} onChange={handleEmailCached} />
