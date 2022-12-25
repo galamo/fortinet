@@ -15,8 +15,9 @@ import { Home } from './components/home';
 import { NotFound } from './components/notFound';
 import { Button } from 'primereact/button';
 import { SpinnerWrapper } from './components/ui-components/SpinnerWrapper';
-
+import Reports from "./components/reports"
 const LazyCountries = React.lazy(() => import("./components/countries"))
+const LazyReports = React.lazy(() => import("./components/reports"))
 // step before MF
 
 
@@ -56,6 +57,14 @@ const routes = [
     isVisible: true,
     // protected
   },
+  {
+    path: "/reports",
+    element: <LazyReports />,
+    text: "reports",
+    isVisible: true,
+    // protected
+  },
+
   {
     path: "*",
     element: <NotFound />,
