@@ -338,7 +338,7 @@ missing features
 
 - tests
 - redux toolkit
-- useMemo
+- useMemo 
 - coucurrent examples 
 
 
