@@ -5,10 +5,13 @@ import { InputText } from "primereact/inputtext"
 import { useNavigate } from "react-router-dom"
 import { SettingsContext } from "../providers/settings-provider";
 import AppDate from "../app-date";
+import { useAppDispatch } from "../../store/hooks";
+import { setToken } from "../../store/reducers/settingsReducer";
 
 
 export function LoginRef() {
     // const email / password!
+    const dispatch = useAppDispatch();
     const emailElement = useRef<HTMLInputElement>(null);
     const passwordElement = useRef<HTMLInputElement>(null);
     const clickingRef = useRef<number>(0)
@@ -44,6 +47,7 @@ export function LoginRef() {
                 if (!emailElement.current?.value || !passwordElement.current?.value) {
                     alert("Something went wrong")
                 }
+                dispatch(setToken(`Token: ${Date.now()}`))
             }} />
             <div style={{ marginTop: "10px" }}>
                 <Button label="You dont have an account?" onClick={() => {

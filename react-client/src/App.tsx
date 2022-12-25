@@ -21,6 +21,7 @@ import SettingsProvider from './components/providers/settings-provider';
 import Footer from './components/Footer';
 const LazyCountries = React.lazy(() => import("./components/countries"))
 const LazyReports = React.lazy(() => import("./components/reports"))
+const LazyProducts = React.lazy(() => import("./components/products"))
 // step before MF
 
 
@@ -71,6 +72,13 @@ const routes = [
     path: "/settings",
     element: <Settings />,
     text: "settings",
+    isVisible: true,
+    // protected
+  },
+  {
+    path: "/products",
+    element: <LazyProducts />,
+    text: "products",
     isVisible: true,
     // protected
   },

@@ -18,8 +18,9 @@ import FortinetImage from "../ui-components/FortinetImage";
 
 export default function Countries() {
     const [countries, setCountries] = useState([]);
-    const [country, setCountry] = useState("");
+    let [country, setCountry] = useState("");
     const [isLoadingCountries, setIsLoadingCountries] = useState(false);
+
 
 
     useEffect(() => {

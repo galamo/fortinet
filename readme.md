@@ -346,6 +346,10 @@ missing features
 - Dispatch ts issue => Done
 - Line chart => Done
 
+# Async operation with redux: 
+
+
+
 ## Examples
 - useState under the hood
 - useEffect ( cleanup ) - aborting
@@ -496,3 +500,15 @@ function shuffle(array: Array<any>) {
 }
 
 <!-- https://codesandbox.io/s/amazing-neco-u4f1ec?file=/src/index.js:291-309 -->
+
+
+
+ # Missing Subjects: 
+ 1. Testing - React library
+ 2. Suspense - deep
+ 3. Thunk as middleware 
+ 4. Redux toolkit advanced 
+ 5. Styled components
+ 6. Protected routes + permissions
+ 7. Transitions between components
+ 
