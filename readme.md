@@ -336,15 +336,15 @@ Redux toolkit
 
 missing features
 
-- tests - unit tests
-- redux toolkit
-- React.memo - component memoization
+- tests - unit tests => Testing Lib, unit testing and more
+- redux toolkit => Starting Now... 
+- React.memo - component memoization => Done
 - coucurrent examples  => Done
 - use Reducer + useContext  => Done
 - source-map-explorer => Done
 - react 18 new features ( useDeffered ) => Done
 - Dispatch ts issue => Done
-- Pie chart 
+- Line chart => Done
 
 ## Examples
 - useState under the hood
