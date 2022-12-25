@@ -338,6 +338,8 @@ missing features
 
 - tests - unit tests
 - redux toolkit
+- useMemo 
+- coucurrent examples 
 - React.memo - component memoization
 - coucurrent examples
 - use Reducer + useContext
