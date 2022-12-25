@@ -339,10 +339,10 @@ missing features
 - tests - unit tests
 - redux toolkit
 - React.memo - component memoization
-- coucurrent examples
-- use Reducer + useContext
-- source-map-explorer - V
-- react 18 new features ( useDeffered )
+- coucurrent examples - ?
+- use Reducer + useContext 
+- source-map-explorer - V 
+- react 18 new features ( useDeffered ) - V
 
 
 ## Examples
