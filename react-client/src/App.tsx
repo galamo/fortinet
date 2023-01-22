@@ -6,7 +6,7 @@ import ResizeComponent from "./components/ui-components/Resize"
 // import { Countries } from "./components/countries"
 import { LoginRef } from './components/login-ref';
 // import { Login } from './components/login';
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom"
+import { BrowserRouter, Route, Routes, Link, Outlet, Navigate } from "react-router-dom"
 import { ProgressSpinner } from 'primereact/progressspinner';
 
 import { Users } from './components/users';
@@ -31,7 +31,7 @@ const routes = [
     element: <Home />,
     text: "home",
     isVisible: true,
-    // protected
+    protected: true
   },
   {
     path: "/register",
@@ -52,7 +52,7 @@ const routes = [
     element: <LazyCountries />,
     text: "countries",
     isVisible: true,
-    // protected
+    protected: true
   },
   {
     path: "/resize",
@@ -96,6 +96,12 @@ const routes = [
 type IRoute = typeof routes[0]
 
 
+function ProtectedRoute() {
+  const auth = window.localStorage.getItem("token")
+  return auth ? <Outlet /> : <Navigate to="/login" />
+}
+
+
 function App() {
 
 
@@ -120,7 +126,9 @@ function App() {
             <Suspense fallback={<ProgressSpinner />}>
               <Routes>
                 {routes.map((route: IRoute) => {
-                  return <Route key={route.text} path={route.path} element={route.element} />
+                  return route.protected ? <Route key={route.text} path="/" element={<ProtectedRoute />}>
+                    <Route key={route.text} path={route.path} element={route.element} />
+                  </Route> : <Route key={route.text} path={route.path} element={route.element} />;
                 })}
               </Routes>
               <Footer />
