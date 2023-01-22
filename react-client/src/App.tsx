@@ -137,7 +137,7 @@ function App() {
 function NavigationBar(props: { routes: Array<IRoute> }) {
   return <div className={"navigation-bar"}>
     {props.routes.filter((route: IRoute) => route.isVisible).map((route: IRoute) => {
-      return <div key={route.text} ><Link to={route.path}><Button label={route.text} /></Link></div>
+      return <div key={route.text} ><Link to={route.path}><Button data-testid={`route-${route.text}`} label={route.text} /></Link></div>
     })}
   </div >
 }

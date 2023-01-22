@@ -10,6 +10,7 @@ import { SpinnerWrapper } from "../ui-components/SpinnerWrapper";
 import css from "./style.module.css";
 import CountriesStats from "./statistics";
 import FortinetImage from "../ui-components/FortinetImage";
+import { Colors, Header } from "components/ui-components/Header";
 
 
 // error!!!
@@ -63,6 +64,7 @@ export default function Countries() {
     const debounceInputChange = debounce(handleInputChange, 400)
 
     return <div>
+        <Header text="countries" color={Colors.red} />
         <div className={css.shuffleButton}>
             <Button onClick={() => {
                 // @ts-ignore

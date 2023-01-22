@@ -38,7 +38,8 @@ export function Login() {
         <div style={{ marginTop: "10px" }}>
             <Button label="You dont have an account?" onClick={() => {
                 // window.location.href = "http://localhost:3000/login"
-                navigate("/home")
+                console.log(email, password)
+                // navigate("/home")
             }} />
         </div>
 

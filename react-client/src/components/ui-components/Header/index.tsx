@@ -12,7 +12,7 @@ export enum Colors {
 
 export function Header(props: IHeader) {
     const { text } = props;
-    return <h1 style={{ color: props.color }}> {text} </h1>
+    return <h1 data-testid={text} style={{ color: props.color }}> {text} </h1>
 }
 
 

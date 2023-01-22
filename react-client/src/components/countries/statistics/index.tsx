@@ -17,7 +17,7 @@ export default function CountriesStats(props: { countries: Array<any> }) {
     </div>
 }
 
-function calcTotalPopulation(countries: Array<any>) {
+export function calcTotalPopulation(countries: Array<Partial<{ population: number }>>) {
     if (!Array.isArray(countries)) return 0;
     return countries.reduce((totalPopulation, currentCountry) => {
         if (typeof currentCountry.population !== 'number') return totalPopulation;
@@ -36,3 +36,13 @@ function calcRegionsCalc(countries: Array<any>) {
     }, {})
 
 }
+
+// Typescript Partial explained - simple
+// type Car = {
+//     model: string,
+//     subModel: string
+// }
+
+// const myCar: Partial<Car> = {
+//     model: "skoda"
+// }
