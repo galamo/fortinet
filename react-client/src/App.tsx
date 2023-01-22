@@ -119,6 +119,7 @@ function App() {
   // useEffect(() => { return Cleanup() will run }, [param]) => When param is getting updated OR destroy
   return (
     <div className="App">
+      {/* Global Style */}
       <div>
         <SettingsProvider>
           <BrowserRouter>
