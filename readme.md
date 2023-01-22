@@ -505,10 +505,7 @@ function shuffle(array: Array<any>) {
 
  # Missing Subjects: 
  1. Testing - React library
- 2. Suspense - deep
- 3. Thunk as middleware 
- 4. Redux toolkit advanced 
- 5. Styled components
- 6. Protected routes + permissions
- 7. Transitions between components
+ 2. Redux toolkit advanced - Thunk as middleware 
+ 3. Styled components
+ 4. Protected routes + permissions
  
